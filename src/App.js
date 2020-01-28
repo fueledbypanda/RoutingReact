@@ -4,18 +4,29 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import Users from './components/Users'
 import './App.css';
+import axios from 'axios'
 import { getHash } from './utils/utils'
 
+const API = 'https://acme-users-api-rev.herokuapp.com/api'
 
 function App() {
 
+
+  const [ users, setUsers ] = useState([])
   const [ params, setParams ] = useState(qs.parse(getHash()));
-useEffect(()=> {
-  window.addEventListener('hashchange', ()=> {
+
+  useEffect(()=> { //get users
+    axios.get(`${API}/users`)
+    .then( response => setUsers(response.data))
+  }, [])
+
+
+  useEffect(()=> { //refresh every hashchange
+    window.addEventListener('hashchange', ()=> {
+      setParams(qs.parse(getHash()));
+    });
     setParams(qs.parse(getHash()));
-  });
-  setParams(qs.parse(getHash()));
-}, []);
+  }, []);
 
   return (
     <div className="App">

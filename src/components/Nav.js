@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from "react";
 
 export default function Nav() {
-  return(
+  return (
     <div className="nav-box">
-      <a href='#'>Home</a>
-      <a href='#view=users'>Users</a>
-      </div>
-  )
+      <a href="#a">Home</a>
+      <a href="#view=users">Users</a>
+    </div>
+  );
 }

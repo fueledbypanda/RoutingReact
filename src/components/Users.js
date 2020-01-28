@@ -1,13 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from "react";
 
-export default function Users({users}) {
-  console.log(users.users)
-  return(
-    <div>Users</div>
-
-  )
+export default function Users({ users }) {
+  console.log(users);
+  return <div>Users</div>;
 }
-
 
 // <div>
 //       {
@@ -27,7 +23,6 @@ export default function Users({users}) {
 //     </div>
 //   )
 // }
-
 
 // <ul>
 // {

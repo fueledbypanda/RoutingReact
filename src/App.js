@@ -31,7 +31,11 @@ function App() {
     <div className="App">
       <Nav />
       {params.view === undefined && <Home />}
-      {params.view === "users" && <Users users={users} />}
+      {params.view === "users" && users !== undefined ? (
+        <Users users={users} />
+      ) : (
+        <p>Loading~~~</p>
+      )}
     </div>
   );
 }

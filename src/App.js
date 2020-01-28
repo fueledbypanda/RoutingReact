@@ -17,7 +17,9 @@ function App() {
 
   useEffect(()=> { //get users
     axios.get(`${API}/users`)
-    .then( response => setUsers(response.data))
+    .then( response => {
+      console.log(response.data)
+      setUsers(response.data)})
   }, [])
 
 
@@ -32,7 +34,7 @@ function App() {
     <div className="App">
       <Nav />
       {params.view === undefined && <Home />}
-      {params.view === 'users' && <Users />}
+      {params.view === 'users' && <Users users={users} />}
     </div>
   );
 }
